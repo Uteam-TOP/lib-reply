@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "ru.fvds.cdss13.libreply"
-version = "0.0.9"
+version = "0.0.10"
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21

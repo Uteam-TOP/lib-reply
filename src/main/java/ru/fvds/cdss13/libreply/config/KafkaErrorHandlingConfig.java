@@ -72,10 +72,10 @@ public class KafkaErrorHandlingConfig {
                 "responsesAds:ru.fvds.cdss13.lib.dto.ad.ResponsesAds," +
                 "responsesAdsFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesAdsFilter," +
                 "responsesAdsProjectFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesAdsProjectFilter," +
-                "responsesCity:ru.fvds.cdss13.lib.dto.ad.ResponsesCity" +
-                "responsesTag:ru.fvds.cdss13.lib.dto.ad.ResponsesTag" +
-                "responsesTagsFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesTagsFilter" +
-                "tagDto:ru.fvds.cdss13.lib.dto.tag.TagDto" +
+                "responsesCity:ru.fvds.cdss13.lib.dto.ad.ResponsesCity," +
+                "responsesTag:ru.fvds.cdss13.lib.dto.ad.ResponsesTag," +
+                "responsesTagsFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesTagsFilter," +
+                "tagDto:ru.fvds.cdss13.lib.dto.tag.TagDto," +
                 "cityDto:ru.fvds.cdss13.lib.dto.city.CityDto";
     }
 
