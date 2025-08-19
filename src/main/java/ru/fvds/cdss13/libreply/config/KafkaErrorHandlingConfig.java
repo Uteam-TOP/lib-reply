@@ -67,13 +67,16 @@ public class KafkaErrorHandlingConfig {
     }
 
     private String getTypeMappings() {
-        return "userRequest:com.example.myservice.dto.UserRequest," +
-                "userResponse:com.example.myservice.dto.UserResponse," +
-                "orderRequest:com.example.myservice.dto.OrderRequest," +
-                "orderResponse:com.example.myservice.dto.OrderResponse," +
-                "auditEvent:com.example.myservice.dto.AuditEvent," +
-                "notification:com.example.myservice.dto.Notification," +
-                "notificationAck:com.example.myservice.dto.NotificationAck";
+        return "adDto:ru.fvds.cdss13.lib.dto.ad.AdDto," +
+                "adFilterDto:ru.fvds.cdss13.lib.dto.ad.AdFilterDto," +
+                "responsesAds:ru.fvds.cdss13.lib.dto.ad.ResponsesAds," +
+                "responsesAdsFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesAdsFilter," +
+                "responsesAdsProjectFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesAdsProjectFilter," +
+                "responsesCity:ru.fvds.cdss13.lib.dto.ad.ResponsesCity" +
+                "responsesTag:ru.fvds.cdss13.lib.dto.ad.ResponsesTag" +
+                "responsesTagsFilter:ru.fvds.cdss13.lib.dto.ad.ResponsesTagsFilter" +
+                "tagDto:ru.fvds.cdss13.lib.dto.tag.TagDto" +
+                "cityDto:ru.fvds.cdss13.lib.dto.city.CityDto";
     }
 
     @Bean
