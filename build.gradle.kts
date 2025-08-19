@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "ru.fvds.cdss13.libreply"
-version = "0.0.6"
+version = "0.0.7"
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
@@ -38,6 +38,7 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api:2.1.1")
     implementation("org.springframework:spring-messaging:6.0.0")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0-rc1")
+    implementation("javax.validation:validation-api:2.0.1.Final")
 
     compileOnly("org.springframework.boot:spring-boot-starter:3.4.2")
 
