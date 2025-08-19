@@ -33,6 +33,7 @@ import java.util.Map;
  * @param <T> тип запроса
  * @param <R> тип ответа
  */
+@Service
 public class KafkaRequestReplyService<T, R> {
     private static final Logger log = LoggerFactory.getLogger(KafkaRequestReplyService.class);
 
