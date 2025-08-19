@@ -12,6 +12,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 import ru.fvds.cdss13.libreply.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

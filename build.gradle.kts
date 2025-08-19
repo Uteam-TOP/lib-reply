@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "ru.fvds.cdss13.libreply"
-version = "0.0.2"
+version = "0.0.3"
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
@@ -18,6 +18,20 @@ repositories {
 }
 
 dependencies {
+    // Spring
+    api("org.springframework.boot:spring-boot-starter:3.2.0")
+    api("org.springframework.kafka:spring-kafka:3.1.0")
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor:3.2.0")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.2.0")
+
+    // Resilience4j
+    api("io.github.resilience4j:resilience4j-retry:2.0.2")
+    api("io.github.resilience4j:resilience4j-core:2.0.2")
+
+    // Jackson
+    api("com.fasterxml.jackson.core:jackson-databind:2.15.0")
+    api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.0")
+
     implementation("org.springframework.kafka:spring-kafka:3.3.8")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
     implementation("io.github.resilience4j:resilience4j-retry:2.0.2")

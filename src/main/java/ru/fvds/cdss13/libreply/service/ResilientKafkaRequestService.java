@@ -5,6 +5,7 @@ import io.github.resilience4j.retry.RetryConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.header.Headers;
 import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Service;
 import ru.fvds.cdss13.libreply.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
