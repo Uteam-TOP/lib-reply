@@ -21,7 +21,7 @@ import java.util.function.Supplier;
  * @param <T> тип запроса
  * @param <R> тип ответа
  */
-@Service
+
 public class ResilientKafkaRequestService<T, R> {
     private static final Logger log = LoggerFactory.getLogger(ResilientKafkaRequestService.class);
 
