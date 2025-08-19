@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "ru.fvds.cdss13.libreply"
-version = "0.0.1"
+version = "0.0.2"
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
@@ -23,12 +23,14 @@ dependencies {
     implementation("io.github.resilience4j:resilience4j-retry:2.0.2")
     implementation("jakarta.annotation:jakarta.annotation-api:2.1.1")
     implementation("org.springframework:spring-messaging:6.0.0")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0-rc1")
 
     compileOnly("org.springframework.boot:spring-boot-starter:3.4.2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.2")
     testImplementation("org.springframework.kafka:spring-kafka-test:3.3.8")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
+
 
 }
 
