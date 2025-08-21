@@ -5,7 +5,6 @@ import io.github.resilience4j.retry.RetryConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.header.Headers;
 import org.springframework.kafka.support.SendResult;
-import org.springframework.stereotype.Service;
 import ru.fvds.cdss13.libreply.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,7 +85,7 @@ public class ResilientKafkaRequestService<T, R> {
             return Retry.decorateSupplier(retry, requestSupplier).get();
         } catch (Exception e) {
             log.error("Request failed after all retry attempts", e);
-            throw new BusinessException("500", "Request failed after retries: " + e.getMessage());
+            throw new BusinessException(500, "Request failed after retries: " + e.getMessage());
         }
     }
 
@@ -102,7 +101,7 @@ public class ResilientKafkaRequestService<T, R> {
             log.error("Failed to send fire-and-forget request", e);
             CompletableFuture<SendResult<String, T>> failedFuture = new CompletableFuture<>();
             failedFuture.completeExceptionally(
-                    new BusinessException("500", "Fire-and-forget failed: " + e.getMessage())
+                    new BusinessException(500, "Fire-and-forget failed: " + e.getMessage())
             );
             return failedFuture;
         }
@@ -121,7 +120,7 @@ public class ResilientKafkaRequestService<T, R> {
             log.error("Failed to send fire-and-forget request with handlers", e);
             if (onFailure != null) {
                 onFailure.accept(
-                        new BusinessException("500", "Fire-and-forget with handlers failed: " + e.getMessage())
+                        new BusinessException(500, "Fire-and-forget with handlers failed: " + e.getMessage())
                 );
             }
         }
@@ -142,7 +141,7 @@ public class ResilientKafkaRequestService<T, R> {
             log.error("Fire-and-forget failed after all retry attempts", e);
             CompletableFuture<SendResult<String, T>> failedFuture = new CompletableFuture<>();
             failedFuture.completeExceptionally(
-                    new BusinessException("500", "Fire-and-forget failed after retries: " + e.getMessage())
+                    new BusinessException(500, "Fire-and-forget failed after retries: " + e.getMessage())
             );
             return failedFuture;
         }

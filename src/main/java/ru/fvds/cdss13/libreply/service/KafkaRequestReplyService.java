@@ -12,7 +12,6 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.stereotype.Service;
 import ru.fvds.cdss13.libreply.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,7 +76,7 @@ public class KafkaRequestReplyService<T, R> {
             timeoutExecutor.schedule(() -> {
                 if (pendingRequests.remove(correlationId) != null) {
                     responseFuture.completeExceptionally(
-                            new BusinessException("408", "Request timeout after " + timeout)
+                            new BusinessException(408, "Request timeout after " + timeout)
                     );
                 }
             }, timeout.toMillis(), TimeUnit.MILLISECONDS);
@@ -88,10 +87,10 @@ public class KafkaRequestReplyService<T, R> {
             return responseFuture.get(timeout.toMillis(), TimeUnit.MILLISECONDS);
 
         } catch (java.util.concurrent.TimeoutException e) {
-            throw new BusinessException("408", "Request timeout: " + e.getMessage());
+            throw new BusinessException(408, "Request timeout: " + e.getMessage());
         } catch (Exception e) {
             pendingRequests.remove(correlationId);
-            throw new BusinessException("500", "Kafka error: " + e.getMessage());
+            throw new BusinessException(500, "Kafka error: " + e.getMessage());
         }
     }
 
@@ -127,7 +126,7 @@ public class KafkaRequestReplyService<T, R> {
             log.error("Error sending fire-and-forget request", e);
             CompletableFuture<SendResult<String, T>> failedFuture = new CompletableFuture<>();
             failedFuture.completeExceptionally(
-                    new BusinessException("500", "Failed to send request: " + e.getMessage())
+                    new BusinessException(500, "Failed to send request: " + e.getMessage())
             );
             return failedFuture;
         }
@@ -248,7 +247,7 @@ public class KafkaRequestReplyService<T, R> {
         // Завершаем все ожидающие запросы
         pendingRequests.forEach((correlationId, future) -> {
             future.completeExceptionally(
-                    new BusinessException("503", "Service shutting down")
+                    new BusinessException(503, "Service shutting down")
             );
         });
         pendingRequests.clear();

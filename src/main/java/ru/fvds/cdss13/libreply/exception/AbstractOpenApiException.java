@@ -16,7 +16,7 @@ package ru.fvds.cdss13.libreply.exception;
 
 public abstract class AbstractOpenApiException extends RuntimeException {
 
-    private String httpStatus;
+    private Integer codeHttpStatus;
 
     /**
      * Описание ошибки, предназначенное для пользователя
@@ -26,45 +26,45 @@ public abstract class AbstractOpenApiException extends RuntimeException {
     /**
      * @param httpStatus http статус ввиде строки: "404", "500", и т.д.
      */
-    protected AbstractOpenApiException(String httpStatus, String message) {
+    protected AbstractOpenApiException(Integer httpStatus, String message) {
         super(message);
-        this.httpStatus = httpStatus;
+        this.codeHttpStatus = httpStatus;
         this.userMessage = message;
     }
 
     /**
      * @param httpStatus http статус ввиде строки: "404", "500", и т.д.
      */
-    protected AbstractOpenApiException(String httpStatus, String message, String userMessage) {
+    protected AbstractOpenApiException(Integer httpStatus, String message, String userMessage) {
         super(message);
-        this.httpStatus = httpStatus;
+        this.codeHttpStatus = httpStatus;
         this.userMessage = userMessage;
     }
 
     /**
      * @param httpStatus http статус ввиде строки: "404", "500", и т.д.
      */
-    protected AbstractOpenApiException(String httpStatus, String message, Throwable cause) {
+    protected AbstractOpenApiException(Integer httpStatus, String message, Throwable cause) {
         super(message, cause);
-        this.httpStatus = httpStatus;
+        this.codeHttpStatus = httpStatus;
         this.userMessage = message;
     }
 
     /**
      * @param httpStatus http статус ввиде строки: "404", "500", и т.д.
      */
-    protected AbstractOpenApiException(String httpStatus, String message, String userMessage, Throwable cause) {
+    protected AbstractOpenApiException(Integer httpStatus, String message, String userMessage, Throwable cause) {
         super(message, cause);
-        this.httpStatus = httpStatus;
+        this.codeHttpStatus = httpStatus;
         this.userMessage = userMessage;
     }
 
-    public String getHttpStatus() {
-        return httpStatus;
+    public Integer getHttpStatus() {
+        return codeHttpStatus;
     }
 
-    public void setHttpStatus(String httpStatus) {
-        this.httpStatus = httpStatus;
+    public void setHttpStatus(Integer httpStatus) {
+        this.codeHttpStatus = httpStatus;
     }
 
     public String getUserMessage() {
